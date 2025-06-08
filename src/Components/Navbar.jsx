@@ -1,8 +1,14 @@
 import React from 'react';
 import { CiSearch } from "react-icons/ci";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+   const navigate = useNavigate();
+
+   const handleNavigate =()=>{
+    navigate('/sign-up')
+   }
   return (
     <>
       {/* Top Bar */}
@@ -10,7 +16,7 @@ const Navbar = () => {
         <a href="" className='text-white text-lg font-bold'>
           envato <span className='font-light'>market</span>
         </a>
-        <button className='bg-[#82b440] text-white text-sm px-4 py-2 rounded-md font-semibold'>
+        <button className='bg-[#82b440] cursor-pointer text-white text-sm px-4 py-2 rounded-md font-semibold' onClick={()=>handleNavigate()}>
           Buy now
         </button>
       </nav>
@@ -27,12 +33,12 @@ const Navbar = () => {
 
         {/* Nav Links */}
         <ul className='flex gap-8 text-sm font-medium text-white'>
-          <li className='hover:text-[#dd7109] cursor-pointer transition-all'>Home ▾</li>
-          <li className='hover:text-[#dd7109] cursor-pointer transition-all'>About Us ▾</li>
-          <li className='hover:text-[#dd7109] cursor-pointer transition-all'>Our Portfolio ▾</li>
-          <li className='hover:text-[#dd7109] cursor-pointer transition-all'>Our Services ▾</li>
-          <li className='hover:text-[#dd7109] cursor-pointer transition-all'>Blog ▾</li>
-          <li className='hover:text-[#dd7109] cursor-pointer transition-all'>Contact Us</li>
+          <li className='hover:text-[#dd7109] cursor-pointer transition-all'><a href="/">Home ▾</a></li>
+          <li className='hover:text-[#dd7109] cursor-pointer transition-all'><a href="/about">About Us ▾</a></li>
+          <li className='hover:text-[#dd7109] cursor-pointer transition-all'><a href="/our-portfolio">Our Portfolio ▾</a></li>
+          <li className='hover:text-[#dd7109] cursor-pointer transition-all'><a href="/our-services">Our Services ▾</a></li>
+          <li className='hover:text-[#dd7109] cursor-pointer transition-all'><a href="/blog">Blogs ▾</a></li>
+          <li className='hover:text-[#dd7109] cursor-pointer transition-all'><a href="/contact-us">Contact</a></li>
         </ul>
 
         {/* Icons */}
