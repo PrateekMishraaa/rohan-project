@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
-const SignUp = () => {
+const SignIn = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
+
     EmailAddress: "",
-    Mobile: "",
+
     Password: ""
   })
   const [loading, seteLoading] = useState(false)
@@ -21,21 +21,21 @@ const SignUp = () => {
 const handleSubmit = async(e) => {
   e.preventDefault();
 
-  if (!formData.fullName || !formData.EmailAddress || !formData.Mobile || !formData.Password) {
+  if ( !formData.EmailAddress ||  !formData.Password) {
     setError(true);
-    toast.error("All fields are required");
+    toast.error("Invalid Credentials");
     return; // stop further execution
   }
 
   try {
-    const response = await axios.post("http://localhost:4000/api/signup",formData,{
+    const response = await axios.post("http://localhost:4000/api/login",formData,{
             "headers":{
               "Content-Type":"application/json"
             }
     })
-    toast.success("Signup Successfully",response)
+    toast.success("Correct User ",response)
         setTimeout(() => {
-            navigate('/login')
+            navigate('/')
         }, 2000);
   } catch (error) {
     toast.error("Something went wrong");
@@ -54,17 +54,7 @@ const handleSubmit = async(e) => {
             <h2 className="text-3xl font-bold text-center text-[#DD7109]">Create an Account</h2>
 
             <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Full Name</label>
-                <input
-                  type="text"
-                  placeholder="John Doe"
-                  name='fullName'
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#DD7109] focus:border-[#DD7109] outline-none"
-                />
-              </div>
+            
 
               <div>
                 <label className="block text-sm font-medium text-gray-700">Email Address</label>
@@ -77,17 +67,7 @@ const handleSubmit = async(e) => {
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#DD7109] focus:border-[#DD7109] outline-none"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Mobile </label>
-                <input
-                  type="text"
-                  placeholder="9540802061"
-                  name='Mobile'
-                  value={formData.Mobile}
-                  onChange={handleChange}
-                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#DD7109] focus:border-[#DD7109] outline-none"
-                />
-              </div>
+             
 
               <div>
                 <label className="block text-sm font-medium text-gray-700">Password</label>
@@ -106,13 +86,13 @@ const handleSubmit = async(e) => {
                   type="submit"
                   className="w-full bg-[#DD7109] hover:bg-[#c6600a] text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
                 >
-                  Sign Up
+                  Login
                 </button>
               </div>
             </div>
 
             <p className="text-sm text-center text-gray-500">
-              Already have an account? <a href="/login" className="text-[#DD7109] font-medium hover:underline">Login</a>
+              Don't have an account? <a href="/sign-up" className="text-[#DD7109] font-medium hover:underline">Login</a>
             </p>
           </form>
         </div>
@@ -121,4 +101,4 @@ const handleSubmit = async(e) => {
     );
   };
 
-  export default SignUp;
+  export default SignIn;

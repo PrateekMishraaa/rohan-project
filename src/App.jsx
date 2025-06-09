@@ -7,6 +7,7 @@ import Services from './Pages/Services.jsx'
 import Blog from './Pages/Blog.jsx'
 import Contact from './Pages/Contact.jsx'
 import SignUp from './Pages/SignUp.jsx'
+import SignIn from './Pages/SignIn.jsx'
 const App = () => {
   return (
    <>
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/blog' element={<Blog/>}/>
         <Route path='/contact-us' element={<Contact/>}/>
         <Route path='/sign-up' element={<SignUp/>}/>
+        <Route path='/login' element={<SignIn/>}/>
       </Routes>
     </Router>
    </>
