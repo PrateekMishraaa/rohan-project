@@ -6,6 +6,7 @@ import { TfiArrowTopRight } from "react-icons/tfi";
 import styled from 'styled-components';
 import { FaBullhorn, FaRocket, FaCode, FaProjectDiagram } from "react-icons/fa";
 import Footer from '../Components/Footer';
+
 const Home = () => {
   const cardData = [
     {
@@ -157,34 +158,57 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div className="w-full bg-white py-16 px-4 ">
-  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
-    {/* Left Image & Box */}
-    <div className="w-full lg:w-1/2 relative">
-      <img src={Girl} alt="About Us" className="w-full h-auto rounded-lg shadow-lg" />
-      <div className="absolute bottom-[-40px] left-8 h-40 w-72   bg-[#dd7109] rounded-xl shadow-md">
-        <p className='text-5xl font-bold text-white px-14 py-4'>$777.6</p>
-        <p className='text-2xl font-light mb-4 text-white px-4'>Helped 4k of bussiness achieve top rankings</p>
-      </div>
-    </div>
-
-    {/* Right Content */}
-    <div className="w-full lg:w-1/2 text-left">
-      <p className="uppercase text-[#DD7109] font-semibold mb-2">About Us</p>
-      <h2 className="text-3xl md:text-4xl font-bold uppercase leading-tight mb-4">
-        Driving Growth With Our Expertise And Passion
-      </h2>
-      <p className="text-gray-600 text-sm md:text-base leading-relaxed text-justify">
-        At the core of our journey lies a commitment to driving growth fueled by a combination of expertise and passion. 
-        We believe growth is not just about numbers – it's about creating meaningful impact, fostering innovation, and 
-        building relationships that last. Our team brings a wealth of knowledge, experience, and dedication to every project.
-      </p>
-    </div>
-  </div>
-</div>
+       <section className="bg-[#faf0e6] py-12">
+        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+          <div className="w-full lg:w-1/2 relative">
+            <img src={Girl} alt="About Us" className="rounded-lg shadow-lg w-full" />
+            <div className="absolute bottom-[-20px] left-4 bg-[#dd7109] rounded-xl shadow-md p-6 text-white w-72">
+              <p className="text-4xl font-bold">$777.6</p>
+              <p className="text-lg font-light">Helped 4k businesses achieve top rankings</p>
+            </div>
+          </div>
+          <div className="w-full lg:w-1/2 text-left">
+            <p className="uppercase text-[#DD7109] font-semibold mb-2">About Us</p>
+            <h2 className="text-3xl md:text-4xl font-bold uppercase mb-4">Driving Growth With Our Expertise And Passion</h2>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+              At the core of our journey lies a commitment to driving growth fueled by a combination of expertise and passion...
+            </p>
+          </div>
+        </div>
+      </section>
 
     </section>
-
+<StyledWrapperr>
+      <div className="rocket cursor-pointer">
+        <div className="rocket-body">
+          <div className="body" />
+          <div className="fin fin-left" />
+          <div className="fin fin-right" />
+          <div className="window" />
+        </div>
+        <div className="exhaust-flame" />
+        <ul className="exhaust-fumes">
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+        </ul>
+        <ul className="star">
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+        </ul>
+      </div>
+    </StyledWrapperr>
 </section>
 
       </section>
@@ -194,6 +218,304 @@ const Home = () => {
     </>
   );
 };
+const StyledWrapperr = styled.div`
+  .rocket {
+    position: absolute;
+    top: 20%;
+    width: 80px;
+    left: calc(50% - 40px);
+  }
+
+  .rocket .rocket-body {
+    width: 80px;
+    left: calc(50% - 50px);
+    animation: bounce 0.5s infinite;
+  }
+
+  .rocket .rocket-body .body {
+    background-color: #dadada;
+    height: 180px;
+    left: calc(50% - 50px);
+    border-top-right-radius: 100%;
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top: 5px solid #f5f5f5;
+  }
+
+  .rocket .rocket-body:before {
+    content: '';
+    position: absolute;
+    left: calc(50% - 24px);
+    width: 48px;
+    height: 13px;
+    background-color: #554842;
+    bottom: -13px;
+    border-bottom-right-radius: 60%;
+    border-bottom-left-radius: 60%;
+  }
+
+  .rocket .window {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: #a75248;
+    left: calc(50% - 25px);
+    top: 40px;
+    border: 5px solid #b4b2b2;
+  }
+
+  .rocket .fin {
+    position: absolute;
+    z-index: -100;
+    height: 55px;
+    width: 50px;
+    background-color: #a75248;
+  }
+
+  .rocket .fin-left {
+    left: -30px;
+    top: calc(100% - 55px);
+    border-top-left-radius: 80%;
+    border-bottom-left-radius: 20%;
+  }
+
+  .rocket .fin-right {
+    right: -30px;
+    top: calc(100% - 55px);
+    border-top-right-radius: 80%;
+    border-bottom-right-radius: 20%;
+  }
+
+  .rocket .exhaust-flame {
+    position: absolute;
+    top: 90%;
+    width: 28px;
+    background: linear-gradient(to bottom, transparent 10%, #f5f5f5 100%);
+    height: 150px;
+    left: calc(50% - 14px);
+    animation: exhaust 0.2s infinite;
+  }
+
+  .rocket .exhaust-fumes li {
+    width: 60px;
+    height: 60px;
+    background-color: #f5f5f5;
+    list-style: none;
+    position: absolute;
+    border-radius: 100%;
+  }
+
+  .rocket .exhaust-fumes li:first-child {
+    width: 200px;
+    height: 200px;
+    bottom: -300px;
+    animation: fumes 5s infinite;
+  }
+
+  .rocket .exhaust-fumes li:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    left: -120px;
+    top: 260px;
+    animation: fumes 3.2s infinite;
+  }
+
+  .rocket .exhaust-fumes li:nth-child(3) {
+    width: 120px;
+    height: 120px;
+    left: -40px;
+    top: 330px;
+    animation: fumes 3s 1s infinite;
+  }
+
+  .rocket .exhaust-fumes li:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    left: -170px;
+    animation: fumes 4s 2s infinite;
+    top: 380px;
+  }
+
+  .rocket .exhaust-fumes li:nth-child(5) {
+    width: 130px;
+    height: 130px;
+    left: -120px;
+    top: 350px;
+    animation: fumes 5s infinite;
+  }
+
+  .rocket .exhaust-fumes li:nth-child(6) {
+    width: 200px;
+    height: 200px;
+    left: -60px;
+    top: 280px;
+    animation: fumes2 10s infinite;
+  }
+
+  .rocket .exhaust-fumes li:nth-child(7) {
+    width: 100px;
+    height: 100px;
+    left: -100px;
+    top: 320px;
+  }
+
+  .rocket .exhaust-fumes li:nth-child(8) {
+    width: 110px;
+    height: 110px;
+    left: 70px;
+    top: 340px;
+  }
+
+  .rocket .exhaust-fumes li:nth-child(9) {
+    width: 90px;
+    height: 90px;
+    left: 200px;
+    top: 380px;
+    animation: fumes 20s infinite;
+  }
+
+  .star li {
+    list-style: none;
+    position: absolute;
+  }
+
+  .star li:before, .star li:after {
+    content: '';
+    position: absolute;
+    background-color: #f5f5f5;
+  }
+
+  .star li:before {
+    width: 10px;
+    height: 2px;
+    border-radius: 50%;
+  }
+
+  .star li:after {
+    height: 8px;
+    width: 2px;
+    left: 4px;
+    top: -3px;
+  }
+
+  .star li:first-child {
+    top: -30px;
+    left: -210px;
+    animation: twinkle 0.4s infinite;
+  }
+
+  .star li:nth-child(2) {
+    top: 0;
+    left: 60px;
+    animation: twinkle 0.5s infinite;
+  }
+
+  .star li:nth-child(2):before {
+    height: 1px;
+    width: 5px;
+  }
+
+  .star li:nth-child(2):after {
+    width: 1px;
+    height: 5px;
+    top: -2px;
+    left: 2px;
+  }
+
+  .star li:nth-child(3) {
+    left: 120px;
+    top: 220px;
+    animation: twinkle 1s infinite;
+  }
+
+  .star li:nth-child(4) {
+    left: -100px;
+    top: 200px;
+    animation: twinkle 0.5s ease infinite;
+  }
+
+  .star li:nth-child(5) {
+    left: 170px;
+    top: 100px;
+    animation: twinkle 0.4s ease infinite;
+  }
+
+  .star li:nth-child(6) {
+    top: 87px;
+    left: -79px;
+    animation: twinkle 0.2s infinite;
+  }
+
+  .star li:nth-child(6):before {
+    height: 1px;
+    width: 5px;
+  }
+
+  .star li:nth-child(6):after {
+    width: 1px;
+    height: 5px;
+    top: -2px;
+    left: 2px;
+  }
+
+  @keyframes fumes {
+    50% {
+      transform: scale(1.5);
+      background-color: transparent;
+    }
+
+    51% {
+      transform: scale(0.8);
+    }
+
+    100% {
+      background-color: #f5f5f5;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translate3d(0px, 0px, 0);
+    }
+
+    50% {
+      transform: translate3d(0px, -4px, 0);
+    }
+
+    100% {
+      transform: translate3d(0px, 0px, 0);
+    }
+  }
+
+  @keyframes exhaust {
+    0% {
+      background: linear-gradient(to bottom, transparent 10%, #f5f5f5 100%);
+    }
+
+    50% {
+      background: linear-gradient(to bottom, transparent 8%, #f5f5f5 100%);
+    }
+
+    75% {
+      background: linear-gradient(to bottom, transparent 12%, #f5f5f5 100%);
+    }
+  }
+
+  @keyframes fumes2 {
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes twinkle {
+    80% {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+  }`;
 
 const StyledWrapper = styled.div`
   .loader {

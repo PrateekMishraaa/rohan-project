@@ -3,7 +3,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
 import { useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 const SignUp = () => {
+  const [togglePassword,setTogglePassword] = useState(false)
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     fullName: "",
@@ -19,6 +21,10 @@ const SignUp = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
   console.log(handleChange)
+
+const handleTogglePassword=()=>{
+  setTogglePassword(!togglePassword)
+}
 
 const handleSubmit = async(e) => {
   e.preventDefault();
@@ -91,17 +97,24 @@ const handleSubmit = async(e) => {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Password</label>
-                <input
-                  type="password"
-                  placeholder="••••••••"
-                  name='Password'
-                  value={formData.Password}
-                  onChange={handleChange}
-                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#DD7109] focus:border-[#DD7109] outline-none"
-                />
-              </div>
+         <div className="relative">
+  <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+  <input
+    type={togglePassword ? "text" : "password"}
+    placeholder="••••••••"
+    name='Password'
+    value={formData.Password}
+    onChange={handleChange}
+    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#DD7109] focus:border-[#DD7109] outline-none pr-10"
+  />
+  <span
+    onClick={handleTogglePassword}
+    className="absolute right-3 top-[38px] text-gray-600 cursor-pointer"
+  >
+    {togglePassword ? <FaEyeSlash /> : <FaEye />}
+  </span>
+</div>
+
 
               <div>
                 <button
