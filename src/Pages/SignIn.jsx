@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
+import {useNavigate} from "react-router-dom"
 const SignIn = () => {
+const navigate = useNavigate()
   const [formData, setFormData] = useState({
 
     EmailAddress: "",
@@ -33,10 +35,12 @@ const handleSubmit = async(e) => {
               "Content-Type":"application/json"
             }
     })
+    console.log(response.data)
+    localStorage.setItem("token",response.data.token)
+    setTimeout(() => {
+        navigate('/')
+    }, 1000);
     toast.success("Correct User ",response)
-        setTimeout(() => {
-            navigate('/')
-        }, 2000);
   } catch (error) {
     toast.error("Something went wrong");
   }

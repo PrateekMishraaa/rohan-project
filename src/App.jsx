@@ -1,30 +1,68 @@
-import React from 'react'
-import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
-import Home from './Pages/Home.jsx'
-import About from './Pages/About.jsx'
-import OurPortfolio from './Pages/OurPortfolio.jsx'
-import Services from './Pages/Services.jsx'
-import Blog from './Pages/Blog.jsx'
-import Contact from './Pages/Contact.jsx'
-import SignUp from './Pages/SignUp.jsx'
-import SignIn from './Pages/SignIn.jsx'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './Pages/Home.jsx';
+import About from './Pages/About.jsx';
+import OurPortfolio from './Pages/OurPortfolio.jsx';
+import Services from './Pages/Services.jsx';
+import Blog from './Pages/Blog.jsx';
+import Contact from './Pages/Contact.jsx';
+import SignUp from './Pages/SignUp.jsx';
+import SignIn from './Pages/SignIn.jsx';
+import ProtectedRoutes from './Pages/ProtectedRoutes.jsx';
+
 const App = () => {
   return (
-   <>
     <Router>
       <Routes>
+        {/* Public Routes */}
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" element={<SignIn />} />
         <Route path='/' element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/our-portfolio' element={<OurPortfolio/>}/>
-        <Route path='/our-services' element={<Services/>}/>
-        <Route path='/blog' element={<Blog/>}/>
-        <Route path='/contact-us' element={<Contact/>}/>
-        <Route path='/sign-up' element={<SignUp/>}/>
-        <Route path='/login' element={<SignIn/>}/>
+        {/* Protected Routes */}
+      
+        <Route
+          path="/about"
+          element={
+            <ProtectedRoutes>
+              <About />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/our-portfolio"
+          element={
+            <ProtectedRoutes>
+              <OurPortfolio />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/our-services"
+          element={
+            <ProtectedRoutes>
+              <Services />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <ProtectedRoutes>
+              <Blog />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/contact-us"
+          element={
+            <ProtectedRoutes>
+              <Contact />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
     </Router>
-   </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
