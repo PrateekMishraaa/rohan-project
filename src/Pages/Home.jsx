@@ -6,8 +6,40 @@ import { TfiArrowTopRight } from "react-icons/tfi";
 import styled from 'styled-components';
 import { FaBullhorn, FaRocket, FaCode, FaProjectDiagram } from "react-icons/fa";
 import Footer from '../Components/Footer';
+import { IoDocumentAttach } from "react-icons/io5";
+
+import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaLightbulb } from "react-icons/fa";
+import { IoIosSettings } from "react-icons/io";
 
 const Home = () => {
+  const ContentMarketing =[
+    {
+        icon: <IoDocumentAttach/>,
+        title:"Content Marketing",
+        description:"Content Marketing isn't about connection.By help into loyal customers."
+    },
+    {
+      icon:<FaRocket/>,
+      title:"SEO Optimization",
+      description:"We optimize every click, every keyword,and every page to a brand of search results."
+    },
+    {
+      icon:<FaMagnifyingGlass/>,
+      title:"Analytics & Report",
+      description:"our analytics and reporting, you'll gain a clear picture of your the opportunities to grow."
+    },
+    {
+      icon:<FaLightbulb/>,
+      title:"Brand Strategy",
+      description:"Your Brand's Journey Starts with a powerful strategy aligns vision with impact your unique story."
+    },
+    {
+      icon:<IoIosSettings/>,
+      title:"Influencer Marketing",
+      description:"Turn influence into impact of with influencer marketing, We connect and your driving and brand"
+    }
+  ]
   const cardData = [
     {
       dataNum: "127k",
@@ -177,8 +209,31 @@ const Home = () => {
         </div>
       </section>
 
+     <section className="min-h-screen w-full bg-[#100a08] px-10 py-16">
+  <div className="h-full w-full">
+    <p className="uppercase text-orange-500 font-semibold text-center mb-12">
+      Our Services
+    </p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+      {ContentMarketing.map((item, index) => (
+        <div
+          key={index}
+          className="h-[300px] rounded-2xl bg-[#2e2119] text-white p-6 shadow-lg hover:border hover:border-[#b66111] transition-all duration-300"
+        >
+          <div className="text-4xl text-[#b66111] mb-4">{item.icon}</div>
+          <h3 className="text-xl font-bold mb-2 hover:text-[#b66111] cursor-pointer transition">
+            {item.title}
+          </h3>
+          <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
     </section>
-<StyledWrapperr>
+{/* <StyledWrapperr>
       <div className="rocket cursor-pointer">
         <div className="rocket-body">
           <div className="body" />
@@ -208,11 +263,11 @@ const Home = () => {
           <li />
         </ul>
       </div>
-    </StyledWrapperr>
+    </StyledWrapperr> */}
 </section>
 
       </section>
-     <div className='relative top-180'>
+     <div className='relative top-290'>
      <Footer />
      </div>
     </>
@@ -221,7 +276,8 @@ const Home = () => {
 const StyledWrapperr = styled.div`
   .rocket {
     position: absolute;
-    top: 20%;
+    top: 100%;
+    right: 40px
     width: 80px;
     left: calc(50% - 40px);
   }
@@ -234,7 +290,7 @@ const StyledWrapperr = styled.div`
 
   .rocket .rocket-body .body {
     background-color: #dadada;
-    height: 180px;
+    height: 120px;
     left: calc(50% - 50px);
     border-top-right-radius: 100%;
     border-top-left-radius: 100%;
