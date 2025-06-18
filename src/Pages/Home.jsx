@@ -2,42 +2,68 @@ import React from 'react'
 import Navbar from '../Components/Navbar'
 import { BiSolidTorch } from "react-icons/bi";
 import { TfiArrowTopRight } from "react-icons/tfi";
- import Girl from "../assets/girl2.png"
+import Girl from "../assets/girl2.png"
 import styled from 'styled-components';
 import { FaBullhorn, FaRocket, FaCode, FaProjectDiagram } from "react-icons/fa";
 import Footer from '../Components/Footer';
 import { IoDocumentAttach } from "react-icons/io5";
-
+import { GoArrowUpRight } from "react-icons/go";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaLightbulb } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
+import { RiSecurePaymentFill } from "react-icons/ri";
+import { BsReceiptCutoff } from "react-icons/bs";
+import Rocket from "../assets/rocket.png"
 
 const Home = () => {
-  const ContentMarketing =[
+
+  const results = [
     {
-        icon: <IoDocumentAttach/>,
-        title:"Content Marketing",
-        description:"Content Marketing isn't about connection.By help into loyal customers."
+      icon: <RiSecurePaymentFill />,
+      title: "Transparency & Communication",
+      description: "Transparency ensures that information is shared openly,creating a sense of accountability and inclusiveness."
     },
     {
-      icon:<FaRocket/>,
-      title:"SEO Optimization",
-      description:"We optimize every click, every keyword,and every page to a brand of search results."
+      icon: <BsReceiptCutoff />,
+      title: "Cutting-Edge Tools & Techniques",
+      description: "Thease innovations leverage advanced technologies like artificial inteligence, machine learning, and automation. "
     },
     {
-      icon:<FaMagnifyingGlass/>,
-      title:"Analytics & Report",
-      description:"our analytics and reporting, you'll gain a clear picture of your the opportunities to grow."
+      icon: <RiSecurePaymentFill />,
+      title: "Dedicated Support & Expertise",
+      description: "Experts not only solve problems but also provide valuable insights,guiding better decision-making and innovation"
     },
     {
-      icon:<FaLightbulb/>,
-      title:"Brand Strategy",
-      description:"Your Brand's Journey Starts with a powerful strategy aligns vision with impact your unique story."
+      icon: <FaMagnifyingGlass />,
+      title: "Results-Oriented Culture",
+      description: "Clear objectives,metric and  expectations guide individuals and teams, ensuring alignment with organizational goals."
+    }
+  ]
+  const ContentMarketing = [
+    {
+      icon: <IoDocumentAttach />,
+      title: "Content Marketing",
+      description: "Content Marketing isn't about connection.By help into loyal customers."
     },
     {
-      icon:<IoIosSettings/>,
-      title:"Influencer Marketing",
-      description:"Turn influence into impact of with influencer marketing, We connect and your driving and brand"
+      icon: <FaRocket />,
+      title: "SEO Optimization",
+      description: "We optimize every click, every keyword,and every page to a brand of search results."
+    },
+    {
+      icon: <FaMagnifyingGlass />,
+      title: "Analytics & Report",
+      description: "our analytics and reporting, you'll gain a clear picture of your the opportunities to grow."
+    },
+    {
+      icon: <FaLightbulb />,
+      title: "Brand Strategy",
+      description: "Your Brand's Journey Starts with a powerful strategy aligns vision with impact your unique story."
+    },
+    {
+      icon: <IoIosSettings />,
+      title: "Influencer Marketing",
+      description: "Turn influence into impact of with influencer marketing, We connect and your driving and brand"
     }
   ]
   const cardData = [
@@ -98,9 +124,9 @@ const Home = () => {
             </a>
             <div className='relative'>
 
-            <StyledWrapper>
-              <div className="loader absolute right-20 " />
-            </StyledWrapper>
+              <StyledWrapper>
+                <div className="loader absolute right-20 " />
+              </StyledWrapper>
             </div>
           </div>
 
@@ -112,128 +138,207 @@ const Home = () => {
 
         {/* Card Section */}
         <div className="max-w-xs mx-auto -mt-24 bg-white rounded-2xl shadow-2xl p-2 mb-20 border border-gray-200 text-center">
-  {cardData.map((item, index) => (
-    <div key={index} className="flex flex-col items-center">
-      {/* Circular Progress */}
-      <div className="relative w-28 h-28 mb-4">
-        <svg className="w-full h-full" viewBox="0 0 36 36">
-          <path
-            className="text-gray-300"
-            stroke="currentColor"
-            strokeWidth="3"
-            fill="none"
-            d="M18 2.0845
+          {cardData.map((item, index) => (
+            <div key={index} className="flex flex-col items-center">
+              {/* Circular Progress */}
+              <div className="relative w-28 h-28 mb-4">
+                <svg className="w-full h-full" viewBox="0 0 36 36">
+                  <path
+                    className="text-gray-300"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    fill="none"
+                    d="M18 2.0845
               a 15.9155 15.9155 0 0 1 0 31.831
               a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <path
-            className="text-[#dd7109]"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeDasharray={`${item.salesPercentage.replace('%', '')}, 100`}
-            fill="none"
-            d="M18 2.0845
+                  />
+                  <path
+                    className="text-[#dd7109]"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeDasharray={`${item.salesPercentage.replace('%', '')}, 100`}
+                    fill="none"
+                    d="M18 2.0845
               a 15.9155 15.9155 0 0 1 0 31.831
               a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <text
-            x="18"
-            y="20.35"
-            className="text-[#dd7109] text-sm"
-            textAnchor="middle"
-            alignmentBaseline="central"
-          >
-            {item.salesPercentage}
-          </text>
-        </svg>
-      </div>
+                  />
+                  <text
+                    x="18"
+                    y="20.35"
+                    className="text-[#dd7109] text-sm"
+                    textAnchor="middle"
+                    alignmentBaseline="central"
+                  >
+                    {item.salesPercentage}
+                  </text>
+                </svg>
+              </div>
 
-      {/* Sales Info */}
-      <p className="text-black text-4xl font-extrabold tracking-wide">{item.dataNum}</p>
-      <p className="text-gray-600 text-base mt-2">Total Sales Achieved</p>
-    </div>
-  ))}
-</div>
-<section className="min-h-screen w-full bg-[#faf0e6] py-10">
-  {/* Heading Section */}
-  <div className="w-full flex flex-col items-center justify-center text-center mb-12">
-    <p className="uppercase font-semibold text-sm text-[#DD7109] mb-2">How it works</p>
-    <h2 className="uppercase font-bold text-2xl md:text-4xl lg:text-5xl font-sans max-w-4xl leading-tight">
-      Our Step-by-Step Marketing Process
-    </h2>
-  </div>
-
-  {/* Placeholder for Next Content */}
-  <section className="bg-[#faf0e6] py-16 px-4 h-screen w-full">
-      <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-y-14 gap-x-10">
-        {steps.map((step, index) => (
-          <div key={index} className="relative flex flex-col items-center text-center w-full sm:w-[45%] lg:w-[22%]">
-            {/* Connector Curve */}
-            {index < steps.length - 1 && (
-              <div className="hidden lg:block absolute top-10 right-[-50%] w-full h-24 border-t-2 border-r-2 rounded-tr-full border-[#DD7109] z-0"></div>
-            )}
-
-            {/* Circle Icon */}
-            <div className="bg-white shadow-md rounded-full h-28 w-28 flex items-center justify-center z-10 mb-4">
-              {step.icon}
+              {/* Sales Info */}
+              <p className="text-black text-4xl font-extrabold tracking-wide">{item.dataNum}</p>
+              <p className="text-gray-600 text-base mt-2">Total Sales Achieved</p>
             </div>
-
-            {/* Step Number */}
-            <p className="text-xl font-bold text-[#DD7109] mb-2">
-              <span className="text-transparent bg-clip-text bg-gradient-to-t from-[#DD7109] to-orange-300">{step.id}.</span>
-            </p>
-
-            {/* Title */}
-            <p className="text-black font-medium text-sm md:text-base px-2">
-              {step.title}
-            </p>
+          ))}
+        </div>
+        <section className="min-h-screen w-full bg-[#faf0e6] py-10">
+          {/* Heading Section */}
+          <div className="w-full flex flex-col items-center justify-center text-center mb-12">
+            <p className="uppercase font-semibold text-sm text-[#DD7109] mb-2">How it works</p>
+            <h2 className="uppercase font-bold text-2xl md:text-4xl lg:text-5xl font-sans max-w-4xl leading-tight">
+              Our Step-by-Step Marketing Process
+            </h2>
           </div>
-        ))}
-      </div>
-       <section className="bg-[#faf0e6] py-12">
-        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
-          <div className="w-full lg:w-1/2 relative">
-            <img src={Girl} alt="About Us" className="rounded-lg shadow-lg w-full" />
-            <div className="absolute bottom-[-20px] left-4 bg-[#dd7109] rounded-xl shadow-md p-6 text-white w-72">
-              <p className="text-4xl font-bold">$777.6</p>
-              <p className="text-lg font-light">Helped 4k businesses achieve top rankings</p>
+
+          {/* Placeholder for Next Content */}
+          <section className="bg-[#faf0e6] py-16 px-4 h-screen w-full">
+            <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-y-14 gap-x-10">
+              {steps.map((step, index) => (
+                <div key={index} className="relative flex flex-col items-center text-center w-full sm:w-[45%] lg:w-[22%]">
+                  {/* Connector Curve */}
+                  {index < steps.length - 1 && (
+                    <div className="hidden lg:block absolute top-10 right-[-50%] w-full h-24 border-t-2 border-r-2 rounded-tr-full border-[#DD7109] z-0"></div>
+                  )}
+
+                  {/* Circle Icon */}
+                  <div className="bg-white shadow-md rounded-full h-28 w-28 flex items-center justify-center z-10 mb-4">
+                    {step.icon}
+                  </div>
+
+                  {/* Step Number */}
+                  <p className="text-xl font-bold text-[#DD7109] mb-2">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-t from-[#DD7109] to-orange-300">{step.id}.</span>
+                  </p>
+
+                  {/* Title */}
+                  <p className="text-black font-medium text-sm md:text-base px-2">
+                    {step.title}
+                  </p>
+                </div>
+              ))}
             </div>
-          </div>
-          <div className="w-full lg:w-1/2 text-left">
-            <p className="uppercase text-[#DD7109] font-semibold mb-2">About Us</p>
-            <h2 className="text-3xl md:text-4xl font-bold uppercase mb-4">Driving Growth With Our Expertise And Passion</h2>
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-              At the core of our journey lies a commitment to driving growth fueled by a combination of expertise and passion...
-            </p>
-          </div>
-        </div>
-      </section>
+            <section className="bg-[#faf0e6] py-12">
+              <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+                <div className="w-full lg:w-1/2 relative">
+                  <img src={Girl} alt="About Us" className="rounded-lg shadow-lg w-full" />
+                  <div className="absolute bottom-[-20px] left-4 bg-[#dd7109] rounded-xl shadow-md p-6 text-white w-72">
+                    <p className="text-4xl font-bold">$777.6</p>
+                    <p className="text-lg font-light">Helped 4k businesses achieve top rankings</p>
+                  </div>
+                </div>
+                <div className="w-full lg:w-1/2 text-left">
+                  <p className="uppercase text-[#DD7109] font-semibold mb-2">About Us</p>
+                  <h2 className="text-3xl md:text-4xl font-bold uppercase mb-4">Driving Growth With Our Expertise And Passion</h2>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    At the core of our journey lies a commitment to driving growth fueled by a combination of expertise and passion...
+                  </p>
+                </div>
+              </div>
+            </section>
 
-     <section className="min-h-screen w-full bg-[#100a08] px-10 py-16">
-  <div className="h-full w-full">
-    <p className="uppercase text-orange-500 font-semibold text-center mb-12">
-      Our Services
-    </p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-      {ContentMarketing.map((item, index) => (
-        <div
-          key={index}
-          className="h-[300px] rounded-2xl bg-[#2e2119] text-white p-6 shadow-lg hover:border hover:border-[#b66111] transition-all duration-300"
-        >
-          <div className="text-4xl text-[#b66111] mb-4">{item.icon}</div>
-          <h3 className="text-xl font-bold mb-2 hover:text-[#b66111] cursor-pointer transition">
-            {item.title}
-          </h3>
-          <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+            <section className="min-h-screen w-full bg-[#100a08] py-16">
+              <div className="w-full px-10">
+                <p className="uppercase text-orange-500 font-semibold text-center mb-12">
+                  Our Services
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                  {ContentMarketing.map((item, index) => (
+                    <div
+                      key={index}
+                      className="h-[300px] rounded-2xl bg-[#2e2119] text-white p-6 shadow-lg hover:border hover:border-[#b66111] transition-all duration-300"
+                    >
+                      <div className="text-4xl text-[#b66111] mb-4">{item.icon}</div>
+                      <h3 className="text-xl font-bold mb-2 hover:text-[#b66111] cursor-pointer transition">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-400 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
 
 
-    </section>
-{/* <StyledWrapperr>
+            <section className='min-h-screen w-full relative bg-[#f6f4f1] flex flex-col md:flex-row justify-between p-6 md:p-14'>
+              {/* Left Section */}
+              <div className='w-full md:w-1/2 mb-10 md:mb-0'>
+                <p className='uppercase font-semibold text-[#DD7109] text-sm md:text-base'>why choose us</p>
+                <p className='font-semibold text-3xl md:text-5xl w-full mt-2'>
+                  Where Expertise Meets Exceptional Results
+                </p>
+                <div className='flex gap-2 py-10 md:py-20'>
+                  <a
+                    href="#"
+                    className="flex items-center justify-center gap-2 uppercase font-semibold text-xs md:text-sm text-white bg-[#dd7109] px-4 md:px-6 py-2 md:py-3 mt-6 md:mt-8 rounded-full w-fit hover:bg-[#c55e05] transition duration-300"
+                  >
+                    contact us
+                    <TfiArrowTopRight className="text-white text-base md:text-lg" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Cards Section */}
+              <div className="w-full flex flex-col items-center gap-6 md:gap-8">
+                {results.map((item, index) => (
+                  <div
+                    key={index}
+                    className="w-full md:w-[90%] border-2 border-orange-500 rounded-xl p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 bg-white shadow-sm"
+                  >
+                    <div className="text-orange-600 text-4xl md:text-5xl">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg md:text-2xl font-semibold text-black mb-1 md:mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+
+
+
+            <section className='min-h-screen w-full relative bg-[#f6f4f1] flex flex-col md:flex-row justify-between p-6 md:p-14'>
+              {/* Left Section */}
+              <div className='h-full w-full'>
+                <img src={Rocket} alt="" className='h-full w-96' />
+              </div>
+
+              {/* Cards Section */}
+              <div className="w-full flex flex-col items-center gap-6 md:gap-8">
+                <div className='h-full w-full '>
+                  <p className='uppercase font-sans font-semibold text-orange-400'>Our Strategy</p>
+                  <p className='font-bold text-4xl text-gray-900'>Strategy Marketing Tailored for Time and Your Growth</p>
+
+                <div className='py-7'>
+                    <p className='font-sans font-semibold'>Research to understand your bussiness, Competitors, and target  audience</p>
+                  <p className='font-sans  font-semibold'>Unique strategy tailored to your specific business goals and industry</p>
+                  <p className='font-sans  font-semibold'>Track performance and continuously optimize campaigns</p>
+                </div>
+
+                  <a
+              href="#"
+              className="flex items-center justify-center gap-2 uppercase font-semibold text-sm text-white bg-[#dd7109] px-6 py-3 mt-8 rounded-full w-fit hover:bg-[#c55e05] transition duration-300"
+            >
+              Learn More
+              <TfiArrowTopRight className="text-white" />
+            </a>
+                 
+                </div>
+              </div>
+            </section>
+
+
+
+
+          </section>
+          {/* <StyledWrapperr>
       <div className="rocket cursor-pointer">
         <div className="rocket-body">
           <div className="body" />
@@ -264,12 +369,12 @@ const Home = () => {
         </ul>
       </div>
     </StyledWrapperr> */}
-</section>
+        </section>
 
       </section>
-     <div className='relative top-290'>
+      {/* <div className='relative top-290'>
      <Footer />
-     </div>
+     </div> */}
     </>
   );
 };
