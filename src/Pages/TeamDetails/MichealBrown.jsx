@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaEnvelope, FaPhone, FaGlobe, FaBriefcase } from "react-icons/fa";
 import Navbar from '../../Components/Navbar';
+import axios from "axios"
 import One from "../../assets/team.jpg";
 import Partner from "../../assets/partner.jpg";
 import { useNavigate } from 'react-router-dom';
@@ -34,6 +35,7 @@ With a focus on collaboration, innovation, and excellence, we go above and beyon
 `;
 
 const MichaelBrown = () => {
+    const[data,setData] = useState([])
     const navigate = useNavigate()
     const details = {
         title: "Chief Executive Officer",
@@ -45,6 +47,20 @@ const MichaelBrown = () => {
 const handleNavigate=()=>{
     navigate('/contact-us')
 }
+
+
+useEffect(()=>{
+        const fetchData = async()=>{
+            try{
+                    const response = await axios.get("http://localhost:3000/api/allusers")
+                    console.log(response.data)
+                    setData(response.data)
+            }catch(error){
+                console.log(error)
+            }
+        }
+        fetchData()
+},[])
     return (
         <>
             <Navbar />
@@ -130,6 +146,16 @@ const handleNavigate=()=>{
                         </div>
                     </div>
                 </div>
+                {
+                    data.map((item,index)=>{
+                        return(
+                            <div key={index}>
+                                <p>{item.fullName}</p>
+                                 <p>{item.EmailAddress}</p>
+                            </div>
+                        )
+                    })
+                }
             </section>
         </>
     );
