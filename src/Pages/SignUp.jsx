@@ -36,7 +36,7 @@ const handleSubmit = async(e) => {
   }
 
   try {
-    const response = await axios.post("http://localhost:4000/api/signup",formData,{
+    const response = await axios.post("http://localhost:3000/api/signup",formData,{
             "headers":{
               "Content-Type":"application/json"
             }
