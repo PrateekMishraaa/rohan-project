@@ -9,6 +9,7 @@ import Contact from './Pages/Contact.jsx';
 import SignUp from './Pages/SignUp.jsx';
 import SignIn from './Pages/SignIn.jsx';
 import ProtectedRoutes from './Pages/ProtectedRoutes.jsx';
+import MichealBrown from './Pages/TeamDetails/MichealBrown.jsx';
 
 const App = () => {
   return (
@@ -57,6 +58,14 @@ const App = () => {
           element={
             <ProtectedRoutes>
               <Contact />
+            </ProtectedRoutes>
+          }
+        />
+         <Route
+          path="/about/micheal-brown"
+          element={
+            <ProtectedRoutes>
+              <MichealBrown />
             </ProtectedRoutes>
           }
         />
